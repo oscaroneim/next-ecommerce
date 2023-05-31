@@ -99,7 +99,7 @@ export default function Cart(){
             {cartStore.cart.length > 0 && cartStore.onCheckout === "cart" ?  (         //-------------- only renders a cart if there are items inside and if the cart is set to cart
                 <motion.div layout>
                <p>Total:{totalPrice !== null ? formatPrice(totalPrice) : "N/A"}</p>
-                <button onClick={() => cartStore.setCheckout('checkout')} className="py-2 mt-4 bg-teal-700 w-full rounded-md text-white">
+                <button onClick={() => cartStore.setCheckout('checkout')} className="py-2 mt-4 bg-primary w-full rounded-md text-white">
                    Checkout
                 </button>
                 </motion.div>

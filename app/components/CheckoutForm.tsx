@@ -51,7 +51,7 @@ const formattedPrice = formatPrice(totalPrice)
         <form className="text-gray-600" onSubmit={handleSubmit} id='payment-form'>
             <PaymentElement id='payment-form' options={{layout: "tabs"  }}/>
             <h1 className="py-4 text-sm font-bold">Total: {formattedPrice} </h1>
-            <button className={`py-2 mt-4 w-full bg-teal-700 rounded-md text-white disabled:opacity-25`} id= "submit" disabled={isLoading || !stripe || !elements}>   {/*----------- button is disabled for user if the page is still loading or stripe isn't initialized or the elements haven't loading in */}
+            <button className={`py-2 mt-4 w-full bg-primary rounded-md text-white disabled:opacity-25`} id= "submit" disabled={isLoading || !stripe || !elements}>   {/*----------- button is disabled for user if the page is still loading or stripe isn't initialized or the elements haven't loading in */}
               <span id="button-text">
                 {isLoading ? <span>Processing</span> : <span>Pay Now</span>}
               </span>

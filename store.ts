@@ -3,17 +3,17 @@ import zustand, { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { AddCartType } from './types/AddCartType'
 
-type CartState = {
-    isOpen: boolean
-    cart: AddCartType[]
-    toggleCart: () => void
-    clearCart: () => void
-    addProduct: (item: AddCartType) => void
+type CartState = {                  
+    isOpen: boolean                 //--------------- is the cart expanded or not (default false)
+    cart: AddCartType[]                       //--------------- data types that the cart should expect
+    toggleCart: () => void                         //--------------- toggle cart to true if used
+    clearCart: () => void                                 //--------------- set the cart to an empty array 
+    addProduct: (item: AddCartType) => void                       
     removeProduct: (item: AddCartType) => void
-    paymentIntent: string
-    onCheckout: string
-    setPaymentIntent: (val: string) => void
-    setCheckout: (val: string) => void
+    paymentIntent: string                                 //--------------- default is an empty string
+    onCheckout: string                                         
+    setPaymentIntent: (val: string) => void                      
+    setCheckout: (val: string) => void                       //--------------- sets the cart items for the checkouts
     
 }
 
@@ -65,3 +65,18 @@ export const useCartStore = create<CartState>()(
     )
 )
 
+type themeState = {
+    mode: ('light' | 'dark'), 
+    toggleMode: (theme: 'light' | 'dark') => void
+}
+
+export const useThemeStore = create<themeState>()(                            
+    persist(
+        (set)=> ({
+            mode: 'light',
+            toggleMode: (theme) => set((state) => ({mode: theme})),
+        }),
+        {name: 'theme-store'}
+    )
+)
+  

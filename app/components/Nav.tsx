@@ -8,6 +8,7 @@ import Cart from "./Cart"
 import { useCartStore } from "@/store"
 import { AiFillShopping } from 'react-icons/ai'
 import { motion , AnimatePresence } from 'framer-motion'
+import DarkLight from "./DarkLight"
 
 export default function Nav({user}: Session){
 
@@ -18,7 +19,7 @@ export default function Nav({user}: Session){
             <Link href={"/"}>
             <h1>Styled</h1>
             </Link>
-            <ul className="flex items-center gap-12">
+            <ul className="flex items-center gap-8">
                 {/* Toggle cart */ }
                 
                 <li 
@@ -39,6 +40,10 @@ export default function Nav({user}: Session){
                     )}
                     </AnimatePresence>
                 </li>
+
+                {/*Dark Mode*/ }
+                <DarkLight/>
+
                 {/*/ If the user is not signed in */}
                 {!user && (
                     <li className="bg-primary text-white py-2 px-4 rounded-md">
@@ -58,11 +63,16 @@ export default function Nav({user}: Session){
                        tabIndex={0}
                        />
                     <ul tabIndex={0} className="dropdown-content menu p-4 space-y-4 shadow bg-base-100 rounded-box w-72">
-                        <Link href={'/dashboard'} className="hover:bg-base-300 p-4 rounded-md" onClick={() => {if(document.activeElement instanceof HTMLElement){document.activeElement.blur()}}}>
+
+                        <Link href={'/dashboard'} 
+                        className="hover:bg-base-300 p-4 rounded-md" 
+                        onClick={() => {if(document.activeElement instanceof HTMLElement){document.activeElement.blur()}}}
+                        >
                         Orders
                         </Link>
                     
-                    <li className="hover:bg-base-300 p-4 rounded-md" onClick={() => {signOut(); if(document.activeElement instanceof HTMLElement){document.activeElement.blur()}}}>
+                    <li className="hover:bg-base-300 p-4 rounded-md" 
+                        onClick={() => {signOut(); if(document.activeElement instanceof HTMLElement){document.activeElement.blur()}}}>
                         Sign Out
                     </li>
                     

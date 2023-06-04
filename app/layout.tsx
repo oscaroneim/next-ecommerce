@@ -23,13 +23,11 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions)
   
   return (
-    <html lang="en">
-      <body className={`mx-4 lg:mx-48 ${roboto.className}`}>
+    <html className={`${roboto.className}`} lang="en">
         <Hydrate>
         <Nav user={session?.user} expires= {session?.expires as string}/>
         {children}
         </Hydrate>
-        </body>
     </html>
   )
 }

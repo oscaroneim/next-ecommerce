@@ -25,6 +25,7 @@ export default function Product({
         width={60}
         height={50} 
         className=" w-50 h-50 object-cover"
+        priority={true}
         />
         <div className="font-medium py-2">
         <h1>{name}</h1>

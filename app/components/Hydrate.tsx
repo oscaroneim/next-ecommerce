@@ -14,7 +14,7 @@ setIsHydrate(true)
 
     return(
         <>
-        {isHydrate ? <body className="px-4 lg:px-48" data-theme={themeStore.mode}>{children}</body> : (<body></body>)}
+        {isHydrate ? <body className="px-4 lg:px-48 font-roboto" data-theme={themeStore.mode}>{children}</body> : (<body></body>)}
         </>
     )
 }

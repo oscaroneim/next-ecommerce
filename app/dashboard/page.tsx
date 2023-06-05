@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { prisma } from "@/util/prisma"
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
 import formatPrice from '@/util/PriceFormat'
@@ -9,7 +9,7 @@ import Image from 'next/image'
 export const revalidate = 0
 
 const fetchOrders = async () => {                 //------------- this async function fetches all of the users orders from the database  or returns null if user is not logged in
-    const prisma = new PrismaClient()
+   
     const user = await getServerSession(authOptions)
     if(!user){
         return null
@@ -67,6 +67,7 @@ export default async function Dashboard(){
                                     alt={product.name}
                                     width={16}
                                     height={16}
+                                    priority={true}
                                     />
                                     <p>{product.unit_amount != null ? formatPrice(product.unit_amount) : "N/A"}</p>
                                     <p>Quantity: {product.quantity}</p>

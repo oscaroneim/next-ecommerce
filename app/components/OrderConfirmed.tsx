@@ -5,7 +5,7 @@ import Image from 'next/image'
 import delivery from "@/public/delivery.gif"
 import Link from 'next/link'
 import { useCartStore } from '@/store'
-import { use, useEffect } from 'react'
+import { useEffect } from 'react'
 
 export default function OrderConfirmed(){
 
